@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="InstintiaVet — Médica Veterinaria especialista en Bienestar Animal. Servicios veterinarios con enfoque integral.">
+  <title>InstintiaVet — Médica Veterinaria | Bienestar Animal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="nav-header" role="banner">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+      <a href="#hero" class="nav__logo">
+        <img src="images/logo.jpg" alt="InstintiaVet" class="nav__logo-img">
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+        <span class="nav__hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav__menu" role="menubar">
+        <li role="none"><a href="#hero" class="nav__link nav__link--active" role="menuitem">Inicio</a></li>
+        <li role="none"><a href="#about" class="nav__link" role="menuitem">Sobre Mí</a></li>
+        <li role="none"><a href="#services" class="nav__link" role="menuitem">Servicios</a></li>
+        <li role="none"><a href="#contact" class="nav__link" role="menuitem">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero__overlay">
+        <div class="hero__content">
+          <h1 class="hero__name">
+            <img src="images/logo.jpg" alt="InstintiaVet" class="hero__logo">
+          </h1>
+          <p class="hero__title">Médica Veterinaria</p>
+          <p class="hero__specialty">
+            <span class="hero__badge">Especialista en Bienestar Animal</span>
+          </p>
+          <a href="#contact" class="hero__cta">Contáctame</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about__container">
+        <h2 class="about__title">Sobre Mí</h2>
+        <div class="about__content">
+          <div class="about__text">
+            <p class="about__intro">
+              Soy <strong>Médica Veterinaria</strong> con un enfoque integral en la protección y el cuidado de los animales.
+            </p>
+            <p>
+              Mi vocación nació del amor profundo por los animales y la convicción de que merecen una vida digna, libre de sufrimiento. Esta pasión me llevó a especializarme en <strong>Bienestar Animal</strong>, un campo donde la ciencia veterinaria garantiza la protección efectiva de todas las especies.
+            </p>
+            <p>
+              Me dedico al cuidado clínico y preventivo de los animales, asegurando su salud física y emocional. Mi objetivo es ofrecer una atención veterinaria compasiva y profesional, promoviendo la tenencia responsable y el respeto por todos los seres vivos.
+            </p>
+          </div>
+          <div class="about__highlights">
+            <h3 class="about__subtitle">Áreas de Enfoque</h3>
+            <ul class="about__list">
+              <li class="about__list-item">
+                <span class="about__list-icon" aria-hidden="true">🐾</span>
+                <span>Medicina veterinaria con enfoque en bienestar integral</span>
+              </li>
+              <li class="about__list-item">
+                <span class="about__list-icon" aria-hidden="true">💊</span>
+                <span>Medicina preventiva y planes de vacunación</span>
+              </li>
+              <li class="about__list-item">
+                <span class="about__list-icon" aria-hidden="true">🌱</span>
+                <span>Educación y concientización sobre tenencia responsable</span>
+              </li>
+              <li class="about__list-item">
+                <span class="about__list-icon" aria-hidden="true">🤝</span>
+                <span>Acompañamiento en casos de maltrato y negligencia animal</span>
+              </li>
+            </ul>
+          </div>
+          <p class="about__closing">
+            Mi objetivo es que cada ser vivo reciba el cuidado digno y la atención profesional que merece, promoviendo una relación armoniosa entre humanos y animales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <h2 class="services__title">Servicios</h2>
+      <div class="services__grid">
+        <!-- Servicios Veterinarios -->
+        <div class="service-card service-card--vet">
+          <button class="service-card__header" 
+                  aria-expanded="false" 
+                  aria-controls="service-1-content"
+                  id="service-1-btn">
+            <span class="service-card__icon" aria-hidden="true">🐾</span>
+            <span class="service-card__name">Consulta Veterinaria General</span>
+            <span class="service-card__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="service-card__body" 
+               id="service-1-content" 
+               role="region" 
+               aria-labelledby="service-1-btn"
+               hidden>
+            <p>Evaluación integral del estado de salud de tu mascota. Incluye examen físico completo, revisión de historial clínico, diagnóstico y plan de tratamiento personalizado. Atención con enfoque en el bienestar emocional y físico del animal.</p>
+          </div>
+        </div>
+
+        <div class="service-card service-card--vet">
+          <button class="service-card__header" 
+                  aria-expanded="false" 
+                  aria-controls="service-2-content"
+                  id="service-2-btn">
+            <span class="service-card__icon" aria-hidden="true">🐾</span>
+            <span class="service-card__name">Medicina Preventiva</span>
+            <span class="service-card__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="service-card__body" 
+               id="service-2-content" 
+               role="region" 
+               aria-labelledby="service-2-btn"
+               hidden>
+            <p>Programas de vacunación, desparasitación y chequeos periódicos para prevenir enfermedades. Orientación sobre nutrición adecuada, cuidados estacionales y detección temprana de patologías comunes según la especie y raza de tu compañero animal.</p>
+          </div>
+        </div>
+
+        <div class="service-card service-card--vet">
+          <button class="service-card__header" 
+                  aria-expanded="false" 
+                  aria-controls="service-3-content"
+                  id="service-3-btn">
+            <span class="service-card__icon" aria-hidden="true">🐾</span>
+            <span class="service-card__name">Bienestar y Comportamiento Animal</span>
+            <span class="service-card__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="service-card__body" 
+               id="service-3-content" 
+               role="region" 
+               aria-labelledby="service-3-btn"
+               hidden>
+            <p>Asesoría especializada en bienestar emocional y comportamiento animal. Evaluación del entorno, identificación de señales de estrés o ansiedad, y diseño de planes de enriquecimiento ambiental para mejorar la calidad de vida de tu mascota.</p>
+          </div>
+        </div>
+
+        <div class="service-card service-card--vet">
+          <button class="service-card__header" 
+                  aria-expanded="false" 
+                  aria-controls="service-4-content"
+                  id="service-4-btn">
+            <span class="service-card__icon" aria-hidden="true">🐾</span>
+            <span class="service-card__name">Nutrición y Alimentación Animal</span>
+            <span class="service-card__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="service-card__body" 
+               id="service-4-content" 
+               role="region" 
+               aria-labelledby="service-4-btn"
+               hidden>
+            <p>Planes de alimentación personalizados según la especie, raza, edad y condición de salud de tu mascota. Asesoría nutricional para prevenir enfermedades y mejorar la calidad de vida a través de una dieta balanceada y adecuada.</p>
+          </div>
+        </div>
+
+        <div class="service-card service-card--vet">
+          <button class="service-card__header" 
+                  aria-expanded="false" 
+                  aria-controls="service-5-content"
+                  id="service-5-btn">
+            <span class="service-card__icon" aria-hidden="true">🐾</span>
+            <span class="service-card__name">Educación en Tenencia Responsable</span>
+            <span class="service-card__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="service-card__body" 
+               id="service-5-content" 
+               role="region" 
+               aria-labelledby="service-5-btn"
+               hidden>
+            <p>Talleres y asesorías sobre tenencia responsable de animales. Orientación en cuidados básicos, socialización, enriquecimiento ambiental y prevención de problemáticas comunes para garantizar una convivencia armoniosa con tu compañero animal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="contact__title">Contacto</h2>
+      <div class="contact__info">
+        <a href="mailto:contacto@instintiavet.com" class="contact__item">
+          <span class="contact__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 7l-10 6L2 7"/>
+            </svg>
+          </span>
+          <span>contacto@instintiavet.com</span>
+        </a>
+        <a href="tel:+573001234567" class="contact__item">
+          <span class="contact__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </span>
+          <span>+57 300 123 4567</span>
+        </a>
+      </div>
+      <div class="contact__social">
+        <a href="#" class="contact__social-link" aria-label="Perfil de Instagram" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="#" class="contact__social-link" aria-label="Perfil de LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2025 InstintiaVet. Todos los derechos reservados.</p>
+    <p class="footer__credits">
+      <a href="ATTRIBUTIONS.md" class="footer__link">Créditos de imágenes</a>
+    </p>
+    <p class="footer__made-with">Hecho con ❤️ por el bienestar animal</p>
+  </footer>
+</body>
+</html>

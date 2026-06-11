@@ -1,0 +1,55 @@
+# Hero Background Image — Instructions
+
+## What to Download
+
+Download a royalty-free image related to veterinary medicine or animal welfare.
+Save it as `hero-bg.webp` in this folder (`images/`).
+
+## Suggested Search Terms
+
+Use any of these on Unsplash (https://unsplash.com) or Pexels (https://pexels.com):
+
+- "veterinarian with dog"
+- "veterinary clinic"
+- "animal welfare"
+- "happy dog at vet"
+- "cat veterinarian"
+- "pet care professional"
+
+## Image Requirements
+
+- Format: WebP (preferred) or JPEG as fallback
+- Maximum file size: 200 KB
+- Minimum resolution: 400 x 300 px
+- Recommended resolution: 1920 x 1080 px (for full-width hero backgrounds)
+- Orientation: landscape (horizontal) works best for a hero banner
+
+## Optimization Steps
+
+1. Download the image from Unsplash/Pexels (choose "Medium" or "Large" size)
+2. Convert to WebP format using one of these free tools:
+   - Squoosh (https://squoosh.app) — drag & drop, adjust quality to stay under 200KB
+   - TinyPNG (https://tinypng.com) — supports WebP output
+   - CloudConvert (https://cloudconvert.com) — batch conversion
+3. Resize if needed: 1920px wide is ideal, 1200px minimum recommended
+4. Verify the final file is under 200 KB
+5. Save as `hero-bg.webp` in this folder
+
+## Optional JPEG Fallback
+
+If you want to support very old browsers that don't handle WebP:
+1. Also save a JPEG version as `hero-bg.jpg` (same folder)
+2. The CSS gradient already provides a fallback if neither image loads
+
+## After Adding the Image
+
+Update `ATTRIBUTIONS.md` in the project root with:
+- The actual photographer's name
+- The source URL (direct link to the photo on Unsplash/Pexels)
+- The license type (e.g., "Unsplash License" or "Pexels License")
+
+## Current Fallback
+
+The site already works without this image — a green gradient is displayed instead.
+Once you add `hero-bg.webp`, it will automatically appear as the hero background
+with a semi-transparent dark overlay for text readability.

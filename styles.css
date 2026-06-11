@@ -1,0 +1,897 @@
+/* InstintiaVet — Styles */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ================================
+   CSS Custom Properties
+   ================================ */
+:root {
+  /* Color Palette */
+  --color-primary: #4CAF50;
+  --color-secondary: #64B5F6;
+  --color-white: #FFFFFF;
+  --color-text: #333333;
+  --color-bg-light: #F5F5F5;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: clamp(2rem, 5vw, 3.5rem);
+  --font-size-h2: clamp(1.5rem, 3vw, 2.5rem);
+
+  /* Transitions & Layout */
+  --transition-speed: 300ms;
+  --nav-height: 64px;
+
+  /* Breakpoints (for reference — used in media queries) */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
+
+/* ================================
+   CSS Reset / Normalize
+   ================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   Base Element Styles
+   ================================ */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* ================================
+   Navigation Header
+   ================================ */
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+/* Logo / Brand Link */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity var(--transition-speed);
+}
+
+.nav__logo:hover .nav__logo-img {
+  opacity: 0.8;
+}
+
+.nav__logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Hamburger Toggle Button */
+.nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  z-index: 1001;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed);
+}
+
+.nav__toggle:hover {
+  background-color: var(--color-bg-light);
+}
+
+.nav__toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hamburger Icon - 3 lines */
+.nav__hamburger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: background-color var(--transition-speed);
+}
+
+.nav__hamburger::before,
+.nav__hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition-speed), top var(--transition-speed);
+}
+
+.nav__hamburger::before {
+  top: -7px;
+}
+
+.nav__hamburger::after {
+  top: 7px;
+}
+
+/* Hamburger Animation - Active State (X shape) */
+.nav__toggle[aria-expanded="true"] .nav__hamburger {
+  background-color: transparent;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Navigation Menu */
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform var(--transition-speed) ease,
+              opacity var(--transition-speed) ease,
+              visibility 0s linear var(--transition-speed);
+  z-index: 999;
+}
+
+/* Menu Open State (mobile) */
+.nav__menu--open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform var(--transition-speed) ease,
+              opacity var(--transition-speed) ease,
+              visibility 0s linear 0s;
+}
+
+/* Navigation Links */
+.nav__link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-light);
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* Active Link */
+.nav__link--active {
+  color: var(--color-primary);
+  font-weight: 600;
+  position: relative;
+}
+
+/* ================================
+   Navigation - Tablet/Desktop (>768px)
+   ================================ */
+@media (min-width: 769px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+
+  .nav__link {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  .nav__link:hover {
+    background-color: rgba(76, 175, 80, 0.08);
+  }
+
+  /* Active link underline indicator on desktop */
+  .nav__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: 1px;
+  }
+}
+
+/* ================================
+   Body offset for fixed nav
+   ================================ */
+body {
+  padding-top: var(--nav-height);
+}
+
+/* ================================
+   Hero Section
+   ================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  /* Gradient serves as fallback if hero-bg.webp is not present or fails to load */
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #4CAF50 100%);
+  /* 
+   * Hero background image — download a royalty-free image and save as images/hero-bg.webp
+   * Source: Unsplash (https://unsplash.com) or Pexels (https://pexels.com)
+   * Recommended search: "veterinarian with dog", "animal welfare", "pet care"
+   * Requirements: WebP format, max 200KB, min 400x300px resolution
+   * See images/hero-bg-instructions.txt for detailed download & optimization steps
+   * License: Document source, author and license in ATTRIBUTIONS.md
+   */
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-white);
+  padding: 2rem 1.5rem;
+  max-width: 700px;
+}
+
+.hero__name {
+  margin-bottom: 0.75rem;
+}
+
+.hero__logo {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__specialty {
+  margin-bottom: 2rem;
+}
+
+.hero__badge {
+  display: inline-block;
+  background-color: #2E7D32;
+  color: var(--color-white);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.hero__cta {
+  display: inline-block;
+  background-color: #2E7D32;
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.hero__cta:hover {
+  background-color: #1B5E20;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Hero - Desktop (full viewport height for 1366x768+) */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero__content {
+    padding: 3rem 2rem;
+  }
+}
+
+/* ================================
+   About Section
+   ================================ */
+.about {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-light);
+}
+
+.about__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about__title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about__text p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
+}
+
+.about__intro {
+  font-size: 1.1rem;
+}
+
+.about__subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.about__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.about__list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about__list-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.about__closing {
+  font-style: italic;
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 1.5rem;
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-white);
+  border-radius: 0 8px 8px 0;
+}
+
+/* About Section - Tablet (768px) */
+@media (min-width: 768px) {
+  .about {
+    padding: 5rem 2rem;
+  }
+
+  .about__intro {
+    font-size: 1.15rem;
+  }
+
+  .about__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* About Section - Desktop (1024px) */
+@media (min-width: 1024px) {
+  .about {
+    padding: 6rem 2rem;
+  }
+
+  .about__container {
+    max-width: 900px;
+  }
+
+  .about__intro {
+    font-size: 1.2rem;
+  }
+}
+
+/* ================================
+   Services Section
+   ================================ */
+.services {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-white);
+}
+
+.services__title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--color-text);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Service Card Base */
+.service-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Veterinary Service Card — Green Accent */
+.service-card--vet {
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Service Card Header Button */
+.service-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-white);
+  text-align: left;
+  transition: background-color var(--transition-speed);
+}
+
+.service-card__header:hover {
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+.service-card__header:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+/* Service Card Icon */
+.service-card__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Service Card Name */
+.service-card__name {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Service Card Chevron */
+.service-card__chevron {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg);
+  transition: transform var(--transition-speed) ease;
+  flex-shrink: 0;
+}
+
+/* Chevron rotated state when expanded */
+[aria-expanded="true"] .service-card__chevron {
+  transform: rotate(-135deg);
+}
+
+/* Service Card Body */
+.service-card__body {
+  padding: 0 1.25rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease, padding var(--transition-speed) ease;
+}
+
+.service-card__body[hidden] {
+  display: block;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.service-card__body:not([hidden]) {
+  max-height: 300px;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.service-card__body p {
+  line-height: 1.7;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ================================
+   Services Section - Tablet (768px+)
+   ================================ */
+@media (min-width: 768px) {
+  .services {
+    padding: 5rem 2rem;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card__name {
+    font-size: 1.05rem;
+  }
+}
+
+/* ================================
+   Services Section - Desktop (1024px+)
+   ================================ */
+@media (min-width: 1024px) {
+  .services {
+    padding: 6rem 2rem;
+  }
+
+  .services__grid {
+    gap: 1.75rem;
+  }
+}
+
+
+/* ================================
+   Contact Section
+   ================================ */
+.contact {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+
+.contact__title {
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), color var(--transition-speed);
+}
+
+.contact__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+  color: var(--color-primary);
+}
+
+.contact__item:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.contact__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.contact__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Social Media Links */
+.contact__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  color: var(--color-primary);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.contact__social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.contact__social-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.contact__social-link svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Contact - Tablet */
+@media (min-width: 768px) {
+  .contact {
+    padding: 5rem 2rem;
+  }
+
+  .contact__info {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .contact__item {
+    justify-content: center;
+  }
+}
+
+/* Contact - Desktop */
+@media (min-width: 1024px) {
+  .contact {
+    padding: 6rem 2rem;
+  }
+}
+
+/* ================================
+   Footer
+   ================================ */
+.footer {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background-color: var(--color-text);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__copyright {
+  font-weight: 500;
+}
+
+.footer__credits {
+  margin-top: 0.25rem;
+}
+
+.footer__link {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-speed);
+}
+
+.footer__link:hover {
+  color: var(--color-primary);
+}
+
+.footer__link:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer__made-with {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
