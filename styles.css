@@ -368,8 +368,8 @@ section {
 }
 
 .about__photo {
-  width: 70px;
-  height: 70px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
@@ -396,8 +396,8 @@ section {
   }
 
   .about__photo {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     order: 0;
   }
 }
@@ -471,10 +471,23 @@ section {
 }
 
 .service-card__body {
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 1.5rem 1.5rem;
   color: var(--color-text-light);
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+.service-card__body p {
+  margin-bottom: 0.75rem;
+}
+
+.service-card__body p:last-child {
+  margin-bottom: 0;
+}
+
+.service-card__body strong {
+  color: var(--color-text);
+  font-weight: 600;
 }
 
 .service-card__body[hidden] {
