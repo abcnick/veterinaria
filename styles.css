@@ -20,7 +20,7 @@
   --font-size-base: 16px;
 
   --transition: 0.3s ease;
-  --nav-height: 72px;
+  --nav-height: 80px;
   --radius: 16px;
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
@@ -119,8 +119,9 @@ section {
 .nav__logo { z-index: 1001; }
 
 .nav__logo-img {
-  height: 52px;
+  height: 60px;
   width: auto;
+  display: block;
 }
 
 .nav__toggle {
@@ -283,7 +284,7 @@ section {
 }
 
 .hero__logo {
-  width: 150px;
+  width: 250px;
   height: auto;
   margin: 0 auto 1.5rem;
   filter: drop-shadow(0 4px 12px rgba(46,125,50,0.15));
