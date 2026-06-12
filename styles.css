@@ -368,12 +368,12 @@ section {
 }
 
 .about__photo {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
-  border: 2px solid var(--color-border);
+  border: 3px solid var(--color-accent);
   justify-self: center;
   order: -1;
 }
@@ -396,8 +396,8 @@ section {
   }
 
   .about__photo {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
     order: 0;
   }
 }
